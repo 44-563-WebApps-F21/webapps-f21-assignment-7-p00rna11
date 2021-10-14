@@ -25,24 +25,27 @@
             console.log(myTime);
         }
         function startTime() {
-            for (let i = 0; i <= 3; i++) {
-                var j = (3 - i) * 1000;
-                setTimeout(() => {
-                    document.getElementById("countdown").innerHTML = i;
-                }, j)
-            }
-            setTimeout(() => {
-                if (myTime == undefined)
-                    document.getElementById("target").innerHTML = "Too Slow";
-                else {
-                    var buttonTime = Date.now();
-                    var diff = buttonTime - myTime;
+            myTime = undefined;
+            buttonTime = Date.now();
+            let randomCountDown = Math.round(Math.random() * (10 - 2) + 2);
 
-                    document.getElementById("target").innerHTML = "Time was " + diff + " ms"
-                    myTime = undefined
+            for(let i=0;i<randomCountDown;i++){
+              setTimeout(() => {
+                  document.getElementById("countdown").innerHTML = i;
+                }, (randomCountDown-i)*1000);
+            }
+
+              setTimeout(() => {
+                if(myTime == undefined){
+                  document.getElementById("target").innerHTML = "Too Slow";
                 }
-            }, 3000)
-        }
+                
+                else{
+                  let elapsedTime = (-1) * (buttonTime - myTime);
+                  document.getElementById("target").innerHTML = "Time was "+elapsedTime+" ms";
+                }
+              }, (randomCountDown-1)*1000)
+            }
   </script>
 
 </body>

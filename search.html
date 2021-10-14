@@ -29,7 +29,6 @@
   <p id="tries" class="text-success">Number of tries is zero.</p>
   
   <p id="distance" class="text-success">Distance is unknown.</p>
-  <button type="button" class="btn btn-primary" onclick="resetTriesAndLocation()">Reset All</button>  
 
 </div>
 <div class="container " >
@@ -122,10 +121,10 @@
             return distance;
         }
 
-        //for bonus
-        function resetTriesAndLocation() {
+       
+        function reset() {
             triesCount = 0;
-            animalLocation = Math.round(Math.random() * (23));//(max-min)-min i.e. (23-0)+0
+            animalLocation = Math.round(Math.random() * (23));
             document.getElementById("tries").innerHTML = "Number of tries is zero";
             distanceOfAnimal = "unknown"
             document.getElementById("distance").innerHTML = "Distance is " + distanceOfAnimal;
